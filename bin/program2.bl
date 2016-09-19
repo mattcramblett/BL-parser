@@ -1,0 +1,39 @@
+PROGRAM ProgramTest1 IS
+
+INSTRUCTION Inst1 IS
+	WHILE next-is-friend DO
+		move
+		turnleft
+	END WHILE
+	turnright
+END Inst1
+
+INSTRUCTION Inst2 IS
+	IF next-is-enemy THEN
+		move
+		move
+		infect
+	END IF
+	turnleft
+END Inst2
+
+BEGIN
+	WHILE true DO
+		move
+		infect
+		IF next-is-wall THEN
+			turnleft
+			move
+		END IF
+	END WHILE
+	Inst1
+	Inst2
+	Inst1
+	move
+	IF next-is-friend THEN
+		turnright
+	ELSE
+		skip
+		move
+	END IF
+END ProgramTest1
